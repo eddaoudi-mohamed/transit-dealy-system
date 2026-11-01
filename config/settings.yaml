@@ -1,0 +1,38 @@
+paths:
+  raw_dir: /app/data/raw
+  manifest: /app/data/raw/manifest.jsonl
+  logs_dir: /app/logs
+
+download:
+  timeout_seconds: 120
+  max_retries: 3
+  backoff_seconds: 2
+
+# Everything the downloader fetches. One entry per file.
+downloads:
+  - name: gtfs_static_manhattan
+    kind: gtfs_static
+    url: "http://web.mta.info/developers/data/nyct/bus/google_transit_manhattan.zip"
+    dest: gtfs_static/google_transit_manhattan.zip
+  - name: gtfs_static_bronx
+    kind: gtfs_static
+    url: "http://web.mta.info/developers/data/nyct/bus/google_transit_bronx.zip"
+    dest: gtfs_static/google_transit_bronx.zip
+  - name: gtfs_static_brooklyn
+    kind: gtfs_static
+    url: "http://web.mta.info/developers/data/nyct/bus/google_transit_brooklyn.zip"
+    dest: gtfs_static/google_transit_brooklyn.zip
+  - name: gtfs_static_queens
+    kind: gtfs_static
+    url: "http://web.mta.info/developers/data/nyct/bus/google_transit_queens.zip"
+    dest: gtfs_static/google_transit_queens.zip
+  - name: gtfs_static_staten_island
+    kind: gtfs_static
+    url: "http://web.mta.info/developers/data/nyct/bus/google_transit_staten_island.zip"
+    dest: gtfs_static/google_transit_staten_island.zip
+
+  # Realtime: replace PASTE_REAL_URL_HERE once you know where the archive serves files.
+  - name: realtime_example
+    kind: realtime
+    url: "PASTE_REAL_URL_HERE"
+    dest: realtime/nyct_mta_bus_gtfsrt/EXAMPLE_FILE_NAME.parquet

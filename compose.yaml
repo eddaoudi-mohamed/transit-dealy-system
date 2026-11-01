@@ -10,8 +10,9 @@ services:
     volumes:
       - ./src:/app/src
       - ./data:/app/data
-      - ./notebooks:/app/notebooks
       - ./tests:/app/tests
+      - ./config:/app/config
+      - ./logs:/app/logs
 
     command: tail -f /dev/null
 
@@ -24,10 +25,13 @@ services:
 
     ports:
       - "8888:8888"
-
+    environment:
+      PYTHONPATH: /app/src
     volumes:
       - ./src:/app/src
       - ./data:/app/data
+      - ./config:/app/config
+      - ./logs:/app/logs
       - ./notebooks:/app/notebooks
 
     command: >
