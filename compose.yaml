@@ -12,8 +12,9 @@ services:
       - ./data:/app/data
       - ./tests:/app/tests
       - ./config:/app/config
-      - ./logs:/app/logs
-
+          - ./logs:/app/logs
+    environment:
+      PYTHONPATH: /app/src
     command: tail -f /dev/null
 
   jupyter:
